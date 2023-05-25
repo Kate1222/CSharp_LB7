@@ -10,14 +10,12 @@ namespace CSharp_Lb7
         internal Album album = new Album();
         internal String artistName = string.Empty;
         bool artistSaved = false;
-        List <Artist> artistList;
+        List<Artist> artistList;
 
         //initialize AlbumAdd form
         internal AlbumAdd(List<Artist> mainArtistList)
         {
             InitializeComponent();
-            dataGridViewAdd1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewAdd1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             artistList = mainArtistList;
             Functions functions = new Functions();
             functions.addInfoToComboBox(comboBoxAuthor, artistList);
@@ -37,7 +35,7 @@ namespace CSharp_Lb7
             else if (numericUpDownCountTracks.Value == 0)
                 MessageBox.Show("Кількість треків не може бути нульовою!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
-            { 
+            {
                 if (!artistSaved)
                 {
                     bool somethingCheck = false;

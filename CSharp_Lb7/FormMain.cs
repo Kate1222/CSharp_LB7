@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-//using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace CSharp_Lb7
 {
@@ -17,11 +16,6 @@ namespace CSharp_Lb7
         public SongsLibrary()
         {
             InitializeComponent();
-            dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             artists = functions.readData();
             functions.updateDataGridView(dataGridView1, artists);
