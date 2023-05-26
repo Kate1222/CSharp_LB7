@@ -89,7 +89,7 @@ namespace CSharp_Lb7
                             this.Close();
                         }
                     }
-                    else
+                    /*else
                     {
                         EditTrack editTrack = new EditTrack(artists[comboBoxAuthor.SelectedIndex].Albums[comboBoxAlbumName.SelectedIndex].Tracks[comboBoxTrackName.SelectedIndex].TrackName,
                             artists[comboBoxAuthor.SelectedIndex].Albums[comboBoxAlbumName.SelectedIndex].Tracks[comboBoxTrackName.SelectedIndex].TrackLength);
@@ -115,7 +115,7 @@ namespace CSharp_Lb7
                             artists[comboBoxAuthor.SelectedIndex].Albums[comboBoxAlbumName.SelectedIndex].Tracks[comboBoxTrackName.SelectedIndex].TrackLength = editTrack.trackLenth;
                         }
                         this.Close();
-                    }
+                    }*/
                 }
             }
 

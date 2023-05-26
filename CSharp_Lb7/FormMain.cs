@@ -16,8 +16,10 @@ namespace CSharp_Lb7
         {
             InitializeComponent();
 
-            artists = functions.readData();
-            functions.updateDataGridView(dataGridView1, artists);
+            LoadDataBase loadDataBase = new LoadDataBase();
+            artists = loadDataBase.LoadFunc();
+
+            functions.updateDataGridView(dataGridView1, artists); functions.updateDataGridView(dataGridView1, artists);
             functions.updateComboBoxAuthors(comboBoxAuthors, artists);
         }
 
@@ -39,6 +41,13 @@ namespace CSharp_Lb7
             }
             else if (indexArtist != -1 && albumAdd.artistName != String.Empty)
                 artists[indexArtist].Albums.Add(albumAdd.album);
+
+            Artist newArtistDb = new Artist();
+            newArtistDb.ArtistName = albumAdd.artistName;
+            newArtistDb.Albums.Add(albumAdd.album);
+            UpdateDataBase databaseFunctions = new UpdateDataBase();
+            databaseFunctions.UpdateFunc(newArtistDb, albumAdd.album);
+
             functions.updateDataGridView(dataGridView1, artists);
             functions.updateComboBoxAuthors(comboBoxAuthors, artists);
         }
@@ -51,19 +60,6 @@ namespace CSharp_Lb7
             else
             {
                 RemoveTrack removeTrack = new RemoveTrack(artists, "Remove Track", true, true);
-                removeTrack.ShowDialog();
-                functions.updateDataGridView(dataGridView1, artists);
-            }
-        }
-
-        //start RemoveTrack form special for edit track
-        private void editTrackToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (artists.Count == 0)
-                MessageBox.Show("В програмі відсутні записи!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
-            {
-                RemoveTrack removeTrack = new RemoveTrack(artists, "Edit Track", true, true);
                 removeTrack.ShowDialog();
                 functions.updateDataGridView(dataGridView1, artists);
             }
@@ -118,31 +114,9 @@ namespace CSharp_Lb7
         {
             DialogResult dialog = MessageBox.Show("Ви дійсно бажаєте завершити роботу?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialog == DialogResult.Yes)
-            {
-                functions.saveData(artists);
                 e.Cancel = false;
-            }
             else
                 e.Cancel = true;
-        }
-
-        private void buttonDebug_Click(object sender, EventArgs e)
-        {
-            LoadDataBase loadDataBase = new LoadDataBase();
-            artists = loadDataBase.LoadFunc();
-            functions.updateDataGridView(dataGridView1, artists);
-        }
-
-        private void buttonDebugAdd_Click(object sender, EventArgs e)
-        {
-            UpdateDataBase databaseFunctions = new UpdateDataBase();
-            AlbumAdd albumAdd = new AlbumAdd(artists);
-            albumAdd.ShowDialog();
-
-            Artist newArtist = new Artist();
-            newArtist.ArtistName = albumAdd.artistName;
-            newArtist.Albums.Add(albumAdd.album);
-            databaseFunctions.UpdateFunc(newArtist, albumAdd.album);
         }
     }
 }

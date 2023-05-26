@@ -42,13 +42,10 @@
             deleteAlbumToolStripMenuItem = new ToolStripMenuItem();
             removeExecutorToolStripMenuItem = new ToolStripMenuItem();
             removeTrackToolStripMenuItem = new ToolStripMenuItem();
-            editTrackToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             comboBoxGenres = new ComboBox();
             label2 = new Label();
             comboBoxAuthors = new ComboBox();
-            buttonDebug = new Button();
-            buttonDebugAdd = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -132,7 +129,7 @@
             // 
             // файлToolStripMenuItem
             // 
-            файлToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addAlbumToolStripMenuItem, deleteAlbumToolStripMenuItem, removeExecutorToolStripMenuItem, removeTrackToolStripMenuItem, editTrackToolStripMenuItem });
+            файлToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addAlbumToolStripMenuItem, deleteAlbumToolStripMenuItem, removeExecutorToolStripMenuItem, removeTrackToolStripMenuItem });
             файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             файлToolStripMenuItem.Size = new Size(48, 20);
             файлToolStripMenuItem.Text = "Файл";
@@ -164,13 +161,6 @@
             removeTrackToolStripMenuItem.Size = new Size(194, 22);
             removeTrackToolStripMenuItem.Text = "Видалення треку";
             removeTrackToolStripMenuItem.Click += removeTrackToolStripMenuItem_Click;
-            // 
-            // editTrackToolStripMenuItem
-            // 
-            editTrackToolStripMenuItem.Name = "editTrackToolStripMenuItem";
-            editTrackToolStripMenuItem.Size = new Size(194, 22);
-            editTrackToolStripMenuItem.Text = "Редагування треку";
-            editTrackToolStripMenuItem.Click += editTrackToolStripMenuItem_Click;
             // 
             // label1
             // 
@@ -217,33 +207,11 @@
             comboBoxAuthors.TabIndex = 5;
             comboBoxAuthors.SelectedIndexChanged += comboBoxAuthors_SelectedIndexChanged;
             // 
-            // buttonDebug
-            // 
-            buttonDebug.Location = new Point(749, 35);
-            buttonDebug.Name = "buttonDebug";
-            buttonDebug.Size = new Size(92, 23);
-            buttonDebug.TabIndex = 6;
-            buttonDebug.Text = "DebugRead";
-            buttonDebug.UseVisualStyleBackColor = true;
-            buttonDebug.Click += buttonDebug_Click;
-            // 
-            // buttonDebugAdd
-            // 
-            buttonDebugAdd.Location = new Point(749, 58);
-            buttonDebugAdd.Name = "buttonDebugAdd";
-            buttonDebugAdd.Size = new Size(92, 23);
-            buttonDebugAdd.TabIndex = 7;
-            buttonDebugAdd.Text = "DebugAdd";
-            buttonDebugAdd.UseVisualStyleBackColor = true;
-            buttonDebugAdd.Click += buttonDebugAdd_Click;
-            // 
             // SongsLibrary
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(933, 519);
-            Controls.Add(buttonDebugAdd);
-            Controls.Add(buttonDebug);
             Controls.Add(comboBoxAuthors);
             Controls.Add(label2);
             Controls.Add(comboBoxGenres);
@@ -272,7 +240,6 @@
         private ToolStripMenuItem deleteAlbumToolStripMenuItem;
         private ToolStripMenuItem removeExecutorToolStripMenuItem;
         private ToolStripMenuItem removeTrackToolStripMenuItem;
-        private ToolStripMenuItem editTrackToolStripMenuItem;
         private Label label1;
         private ComboBox comboBoxGenres;
         private Label label2;
@@ -284,8 +251,6 @@
         private DataGridViewTextBoxColumn genre;
         private DataGridViewTextBoxColumn albumName;
         private DataGridViewTextBoxColumn TrackLenth;
-        private Button buttonDebug;
-        private Button buttonDebugAdd;
     }
 }
 

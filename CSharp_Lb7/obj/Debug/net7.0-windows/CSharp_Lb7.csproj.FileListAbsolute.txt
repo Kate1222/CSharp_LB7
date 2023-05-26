@@ -5,7 +5,6 @@ C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharp_Lb7\CSharp_Lb7\bin\Debug\net7
 C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharp_Lb7\CSharp_Lb7\bin\Debug\net7.0-windows\CSharp_Lb7.pdb
 C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharp_Lb7\CSharp_Lb7\obj\Debug\net7.0-windows\CSharp_Lb7.csproj.AssemblyReference.cache
 C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharp_Lb7\CSharp_Lb7\obj\Debug\net7.0-windows\CSharp_Lb7.AlbumAdd.resources
-C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharp_Lb7\CSharp_Lb7\obj\Debug\net7.0-windows\CSharp_Lb7.EditTrack.resources
 C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharp_Lb7\CSharp_Lb7\obj\Debug\net7.0-windows\CSharp_Lb7.SongsLibrary.resources
 C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharp_Lb7\CSharp_Lb7\obj\Debug\net7.0-windows\CSharp_Lb7.RemoveTrack.resources
 C:\Users\vlad3\OneDrive\Desktop\Projects\C#\CSharp_Lb7\CSharp_Lb7\obj\Debug\net7.0-windows\CSharp_Lb7.csproj.GenerateResource.cache
