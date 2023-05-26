@@ -11,10 +11,9 @@ namespace CSharp_Lb7
 
             // Get the artist ID
             int artistId;
-            string artistIdQuery = "SELECT ArtistId FROM Table_Artist WHERE ArtistName = @ArtistName";
+            string artistIdQuery = $"SELECT ArtistId FROM Table_Artist WHERE ArtistName = '{artistName}'";
             using (SqlCommand artistIdCommand = new SqlCommand(artistIdQuery, _dataBase.getConnection()))
             {
-                artistIdCommand.Parameters.AddWithValue("@ArtistName", artistName);
                 artistId = (int)artistIdCommand.ExecuteScalar();
             }
 
@@ -22,22 +21,18 @@ namespace CSharp_Lb7
             {
                 // Get the album ID
                 int albumId;
-                string albumIdQuery = "SELECT AlbumId FROM Table_Album WHERE ArtistId = @ArtistId AND AlbumName = @AlbumName";
+                string albumIdQuery = $"SELECT AlbumId FROM Table_Album WHERE ArtistId = '{artistId}' AND AlbumName = '{albumName}'";
                 using (SqlCommand albumIdCommand = new SqlCommand(albumIdQuery, _dataBase.getConnection()))
                 {
-                    albumIdCommand.Parameters.AddWithValue("@ArtistId", artistId);
-                    albumIdCommand.Parameters.AddWithValue("@AlbumName", albumName);
                     albumId = (int)albumIdCommand.ExecuteScalar();
                 }
 
                 if (albumId != 0)
                 {
                     // Remove the track from the Table_Track
-                    string trackDeleteQuery = "DELETE FROM Table_Track WHERE AlbumId = @AlbumId AND TrackName = @TrackName";
+                    string trackDeleteQuery = $"DELETE FROM Table_Track WHERE AlbumId = '{albumId}' AND TrackName = '{trackName}'";
                     using (SqlCommand trackDeleteCommand = new SqlCommand(trackDeleteQuery, _dataBase.getConnection()))
                     {
-                        trackDeleteCommand.Parameters.AddWithValue("@AlbumId", albumId);
-                        trackDeleteCommand.Parameters.AddWithValue("@TrackName", trackName);
                         trackDeleteCommand.ExecuteNonQuery();
                     }
                 }

@@ -110,26 +110,20 @@ namespace CSharp_Lb7
             {
                 foreach (Album album in artist.Albums)
                 {
-                    // Create a HashSet to store unique track names
                     HashSet<string> uniqueTracks = new HashSet<string>();
 
-                    // Create a temporary list to store the filtered tracks
                     List<Track> filteredTracks = new List<Track>();
 
                     foreach (Track track in album.Tracks)
                     {
-                        // Check if the track name is unique
                         if (!uniqueTracks.Contains(track.TrackName))
                         {
-                            // Add the track name to the HashSet
                             uniqueTracks.Add(track.TrackName);
 
-                            // Add the track to the filtered tracks list
                             filteredTracks.Add(track);
                         }
                     }
 
-                    // Replace the album's tracks with the filtered tracks
                     album.Tracks = filteredTracks;
                 }
             }

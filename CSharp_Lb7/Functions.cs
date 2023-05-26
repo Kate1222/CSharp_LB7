@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
-using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
-
-namespace CSharp_Lb7
+﻿namespace CSharp_Lb7
 {
     class Functions
     {
@@ -155,25 +146,6 @@ namespace CSharp_Lb7
             comboBox.Items.Add(String.Empty);
             for (int i = 0; i < artists.Count; i++)
                 comboBox.Items.Add(artists[i].ArtistName);
-        }
-
-        //save data to file using json
-        public void saveData(List<Artist> artists)
-        {
-            string objectSerialized = JsonSerializer.Serialize(artists);
-            File.WriteAllText("data.json", objectSerialized);
-        }
-
-        //read data using json
-        public List<Artist> readData()
-        {
-            List<Artist> artists = new List<Artist>();
-            if (File.Exists("data.json"))
-            {
-                string objectJsonFile = File.ReadAllText("data.json");
-                artists = JsonSerializer.Deserialize<List<Artist>>(objectJsonFile);
-            }
-            return artists;
         }
     }
 }

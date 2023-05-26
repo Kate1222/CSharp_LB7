@@ -13,10 +13,7 @@ namespace CSharp_Lb7
             int artistId = GetArtistId(artist.ArtistName, _dataBase.getConnection());
 
             if (artistId == 0)
-            {
-                // Artist does not exist, so insert the new artist into the database
                 artistId = InsertArtist(artist.ArtistName, _dataBase.getConnection());
-            }
 
             // Insert the new album into the database
             int albumId = InsertAlbum(artistId, album, _dataBase.getConnection());
@@ -27,17 +24,11 @@ namespace CSharp_Lb7
                 int genreId = GetGenreId(genre, _dataBase.getConnection());
 
                 if (genreId == 0)
-                {
-                    // Genre does not exist, so insert the new genre into the database
                     genreId = InsertGenre(genre, _dataBase.getConnection());
-                }
 
                 // Check if the album is already associated with the genre
                 if (!IsAlbumGenreAssociated(albumId, genreId, _dataBase.getConnection()))
-                {
-                    // Album-genre association does not exist, so insert the association into Table_AlbumGenre
                     InsertAlbumGenre(albumId, genreId, _dataBase.getConnection());
-                }
             }
 
             // Associate tracks with the album
@@ -45,9 +36,7 @@ namespace CSharp_Lb7
             {
                 // Check if the track already exists in the album
                 if (!IsTrackExistsInAlbum(albumId, track.TrackName, _dataBase.getConnection()))
-                {
                     InsertTrack(albumId, track, _dataBase.getConnection());
-                }
             }
             _dataBase.closeConnection();
         }
@@ -62,9 +51,7 @@ namespace CSharp_Lb7
                 object result = command.ExecuteScalar();
 
                 if (result != null && result != DBNull.Value)
-                {
                     return Convert.ToInt32(result);
-                }
             }
 
             return 0;
@@ -106,9 +93,7 @@ namespace CSharp_Lb7
                 object result = command.ExecuteScalar();
 
                 if (result != null && result != DBNull.Value)
-                {
                     return Convert.ToInt32(result);
-                }
             }
 
             return 0;
@@ -124,9 +109,7 @@ namespace CSharp_Lb7
                 object result = command.ExecuteScalar();
 
                 if (result != null && result != DBNull.Value)
-                {
                     return Convert.ToInt32(result);
-                }
             }
 
             return 0;
@@ -146,9 +129,7 @@ namespace CSharp_Lb7
                 object result = command.ExecuteScalar();
 
                 if (result != null && result != DBNull.Value)
-                {
                     return Convert.ToInt32(result);
-                }
             }
 
             return 0;
@@ -164,9 +145,7 @@ namespace CSharp_Lb7
                 object result = command.ExecuteScalar();
 
                 if (result != null && result != DBNull.Value)
-                {
                     return Convert.ToInt32(result);
-                }
             }
 
             return 0;
