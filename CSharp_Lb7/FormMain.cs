@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-
 namespace CSharp_Lb7
 {
     public partial class SongsLibrary : Form
@@ -125,6 +124,25 @@ namespace CSharp_Lb7
             }
             else
                 e.Cancel = true;
+        }
+
+        private void buttonDebug_Click(object sender, EventArgs e)
+        {
+            LoadDataBase loadDataBase = new LoadDataBase();
+            artists = loadDataBase.LoadFunc();
+            functions.updateDataGridView(dataGridView1, artists);
+        }
+
+        private void buttonDebugAdd_Click(object sender, EventArgs e)
+        {
+            UpdateDataBase databaseFunctions = new UpdateDataBase();
+            AlbumAdd albumAdd = new AlbumAdd(artists);
+            albumAdd.ShowDialog();
+
+            Artist newArtist = new Artist();
+            newArtist.ArtistName = albumAdd.artistName;
+            newArtist.Albums.Add(albumAdd.album);
+            databaseFunctions.UpdateFunc(newArtist, albumAdd.album);
         }
     }
 }

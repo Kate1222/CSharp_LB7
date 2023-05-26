@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            Num = new DataGridViewTextBoxColumn();
+            NumberInAlbum = new DataGridViewTextBoxColumn();
+            songName = new DataGridViewTextBoxColumn();
+            artistName = new DataGridViewTextBoxColumn();
+            genre = new DataGridViewTextBoxColumn();
+            albumName = new DataGridViewTextBoxColumn();
+            TrackLenth = new DataGridViewTextBoxColumn();
             menuStrip1 = new MenuStrip();
             файлToolStripMenuItem = new ToolStripMenuItem();
             addAlbumToolStripMenuItem = new ToolStripMenuItem();
@@ -40,13 +47,8 @@
             comboBoxGenres = new ComboBox();
             label2 = new Label();
             comboBoxAuthors = new ComboBox();
-            Num = new DataGridViewTextBoxColumn();
-            NumberInAlbum = new DataGridViewTextBoxColumn();
-            songName = new DataGridViewTextBoxColumn();
-            artistName = new DataGridViewTextBoxColumn();
-            genre = new DataGridViewTextBoxColumn();
-            albumName = new DataGridViewTextBoxColumn();
-            TrackLenth = new DataGridViewTextBoxColumn();
+            buttonDebug = new Button();
+            buttonDebugAdd = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -61,6 +63,62 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(905, 412);
             dataGridView1.TabIndex = 0;
+            // 
+            // Num
+            // 
+            Num.HeaderText = "№";
+            Num.Name = "Num";
+            Num.ReadOnly = true;
+            Num.Resizable = DataGridViewTriState.False;
+            Num.Width = 30;
+            // 
+            // NumberInAlbum
+            // 
+            NumberInAlbum.HeaderText = "№(альбом)";
+            NumberInAlbum.Name = "NumberInAlbum";
+            NumberInAlbum.ReadOnly = true;
+            NumberInAlbum.Resizable = DataGridViewTriState.False;
+            NumberInAlbum.Width = 80;
+            // 
+            // songName
+            // 
+            songName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            songName.HeaderText = "Назва треку";
+            songName.Name = "songName";
+            songName.ReadOnly = true;
+            songName.Resizable = DataGridViewTriState.False;
+            // 
+            // artistName
+            // 
+            artistName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            artistName.HeaderText = "Ім'я виконавця";
+            artistName.Name = "artistName";
+            artistName.ReadOnly = true;
+            artistName.Resizable = DataGridViewTriState.False;
+            // 
+            // genre
+            // 
+            genre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            genre.HeaderText = "Жанр";
+            genre.Name = "genre";
+            genre.ReadOnly = true;
+            genre.Resizable = DataGridViewTriState.False;
+            // 
+            // albumName
+            // 
+            albumName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            albumName.HeaderText = "Назва альбому";
+            albumName.Name = "albumName";
+            albumName.ReadOnly = true;
+            albumName.Resizable = DataGridViewTriState.False;
+            // 
+            // TrackLenth
+            // 
+            TrackLenth.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            TrackLenth.HeaderText = "Довжина треку";
+            TrackLenth.Name = "TrackLenth";
+            TrackLenth.ReadOnly = true;
+            TrackLenth.Resizable = DataGridViewTriState.False;
             // 
             // menuStrip1
             // 
@@ -159,67 +217,33 @@
             comboBoxAuthors.TabIndex = 5;
             comboBoxAuthors.SelectedIndexChanged += comboBoxAuthors_SelectedIndexChanged;
             // 
-            // Num
+            // buttonDebug
             // 
-            Num.HeaderText = "№";
-            Num.Name = "Num";
-            Num.ReadOnly = true;
-            Num.Resizable = DataGridViewTriState.False;
-            Num.Width = 30;
+            buttonDebug.Location = new Point(749, 35);
+            buttonDebug.Name = "buttonDebug";
+            buttonDebug.Size = new Size(92, 23);
+            buttonDebug.TabIndex = 6;
+            buttonDebug.Text = "DebugRead";
+            buttonDebug.UseVisualStyleBackColor = true;
+            buttonDebug.Click += buttonDebug_Click;
             // 
-            // NumberInAlbum
+            // buttonDebugAdd
             // 
-            NumberInAlbum.HeaderText = "№(альбом)";
-            NumberInAlbum.Name = "NumberInAlbum";
-            NumberInAlbum.ReadOnly = true;
-            NumberInAlbum.Resizable = DataGridViewTriState.False;
-            NumberInAlbum.Width = 80;
-            // 
-            // songName
-            // 
-            songName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            songName.HeaderText = "Назва треку";
-            songName.Name = "songName";
-            songName.ReadOnly = true;
-            songName.Resizable = DataGridViewTriState.False;
-            // 
-            // artistName
-            // 
-            artistName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            artistName.HeaderText = "Ім'я виконавця";
-            artistName.Name = "artistName";
-            artistName.ReadOnly = true;
-            artistName.Resizable = DataGridViewTriState.False;
-            // 
-            // genre
-            // 
-            genre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            genre.HeaderText = "Жанр";
-            genre.Name = "genre";
-            genre.ReadOnly = true;
-            genre.Resizable = DataGridViewTriState.False;
-            // 
-            // albumName
-            // 
-            albumName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            albumName.HeaderText = "Назва альбому";
-            albumName.Name = "albumName";
-            albumName.ReadOnly = true;
-            albumName.Resizable = DataGridViewTriState.False;
-            // 
-            // TrackLenth
-            // 
-            TrackLenth.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            TrackLenth.HeaderText = "Довжина треку";
-            TrackLenth.Name = "TrackLenth";
-            TrackLenth.ReadOnly = true;
-            TrackLenth.Resizable = DataGridViewTriState.False;
+            buttonDebugAdd.Location = new Point(749, 58);
+            buttonDebugAdd.Name = "buttonDebugAdd";
+            buttonDebugAdd.Size = new Size(92, 23);
+            buttonDebugAdd.TabIndex = 7;
+            buttonDebugAdd.Text = "DebugAdd";
+            buttonDebugAdd.UseVisualStyleBackColor = true;
+            buttonDebugAdd.Click += buttonDebugAdd_Click;
             // 
             // SongsLibrary
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(933, 519);
+            Controls.Add(buttonDebugAdd);
+            Controls.Add(buttonDebug);
             Controls.Add(comboBoxAuthors);
             Controls.Add(label2);
             Controls.Add(comboBoxGenres);
@@ -260,6 +284,8 @@
         private DataGridViewTextBoxColumn genre;
         private DataGridViewTextBoxColumn albumName;
         private DataGridViewTextBoxColumn TrackLenth;
+        private Button buttonDebug;
+        private Button buttonDebugAdd;
     }
 }
 

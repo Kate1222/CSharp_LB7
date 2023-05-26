@@ -1,6 +1,6 @@
 ﻿namespace CSharp_Lb7
 {
-    internal class Album
+    public class Album
     {
         public string AlbumName { get; set; } = string.Empty;
         public int Year { get; set; } = 0;

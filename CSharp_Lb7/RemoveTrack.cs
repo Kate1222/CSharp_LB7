@@ -68,6 +68,13 @@ namespace CSharp_Lb7
                                 artists[comboBoxAuthor.SelectedIndex].Albums.RemoveAt(comboBoxAlbumName.SelectedIndex);
                             else
                             {
+                                RemoveTrackDataBase removeTrackDataBase = new RemoveTrackDataBase();
+                                removeTrackDataBase.RemoveTrackFromDataBase(
+                                    artists[comboBoxAuthor.SelectedIndex].ArtistName,
+                                    artists[comboBoxAuthor.SelectedIndex].Albums[comboBoxAlbumName.SelectedIndex]
+                                        .AlbumName,
+                                    artists[comboBoxAuthor.SelectedIndex].Albums[comboBoxAlbumName.SelectedIndex]
+                                        .Tracks[comboBoxTrackName.SelectedIndex].TrackName);
                                 artists[comboBoxAuthor.SelectedIndex].Albums[comboBoxAlbumName.SelectedIndex].Tracks.RemoveAt(comboBoxTrackName.SelectedIndex);
                                 artists[comboBoxAuthor.SelectedIndex].Albums[comboBoxAlbumName.SelectedIndex].CountTracks--;
                             }
@@ -113,6 +120,9 @@ namespace CSharp_Lb7
                     DialogResult mb = MessageBox.Show("Ви точно бажаете ВИДАЛИТИ цей альбом?", "Question!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (mb == DialogResult.Yes)
                     {
+                        RemoveAlbumDataBase removeAlbumDataBase = new RemoveAlbumDataBase();
+                        removeAlbumDataBase.RemoveAlbumFromDataBase(artists[comboBoxAuthor.SelectedIndex].ArtistName,
+                            artists[comboBoxAuthor.SelectedIndex].Albums[comboBoxAlbumName.SelectedIndex].AlbumName);
                         artists[comboBoxAuthor.SelectedIndex].Albums.RemoveAt(comboBoxAlbumName.SelectedIndex);
                         this.Close();
                     }

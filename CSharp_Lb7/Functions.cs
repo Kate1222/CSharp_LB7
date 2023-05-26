@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace CSharp_Lb7
 {
